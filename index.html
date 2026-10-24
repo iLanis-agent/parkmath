@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Park Math</title>
+<style>
+  :root { --accent:#2c5f8a; --ink:#16222c; --paper:#eef3f6; --soft:#dfe9ef; }
+  * { box-sizing:border-box; margin:0; }
+  body { font-family:Georgia, "Times New Roman", serif; background:var(--paper); color:var(--ink); line-height:1.6; }
+  main { max-width:660px; margin:0 auto; padding:3rem 1.2rem; }
+  .boundary { background:#fdeaea; border-left:6px solid #b03030; color:#5c1c1c; border-radius:6px; padding:1rem 1.1rem; margin:1.2rem 0 1.6rem; }
+  .boundary strong { display:block; margin-bottom:.3rem; }
+  h1 { font-size:2.2rem; color:var(--accent); }
+  p.lede { font-size:1.1rem; margin-top:.6rem; }
+  h2 { font-size:1.15rem; margin:1.6rem 0 .5rem; color:var(--accent); }
+  p { margin-bottom:.7rem; }
+  a.cta { display:inline-block; margin-top:1rem; background:var(--accent); color:#fff; padding:.7rem 1.4rem; border-radius:6px; text-decoration:none; font-size:1.05rem; }
+  footer { margin-top:2.4rem; font-size:.85rem; color:#7d9ab0; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Park Math</h1>
+  <p class="lede">What the garage will actually bill, and the minute the price steps up.</p>
+  <div class="boundary">
+    <strong>Boundary: arithmetic only</strong>
+    Park Math counts minutes and applies a rate card you copy from the posted sign. It does not know your garage, its validations, event rates, lost-ticket rules or overnight pricing, and it gives no verdict that parking there is wise or cheap. Every number is your own entry.
+  </div>
+
+  <h2>The problem</h2>
+  <p>A garage bill is not a price times hours. There is a grace that either covers the stay or vanishes, a first hour at one price, then every started block of minutes at another, and a daily maximum waiting to cut the total. The sign lists all of it; the barrier applies all of it; and the driver standing at the exit machine finds out the total only after the stay is over.</p>
+
+  <h2>What it tells you</h2>
+  <p>Enter the entry and exit times and the rate card from the sign. Park Math answers four truths with exact arithmetic: how long the stay is, whether the grace covers it or the whole stay is billed, what the card charges with its daily maximum, and the leave-by minute that keeps the price where it is before the next started block adds its price.</p>
+
+  <h2>The honesty</h2>
+  <p>Started blocks round up, because that is what the sign means by "each started 30 minutes". The grace does not discount a longer stay: past it, the whole stay is billed from entry. And when the daily maximum already holds, the page says so instead of inventing a saving.</p>
+
+  <a class="cta" href="app.html">Open the app</a>
+  <footer>Park Math is exact arithmetic over the numbers you enter.</footer>
+</main>
+</body>
+</html>
