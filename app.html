@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Park Math - app</title>
+<style>
+  :root { --accent:#2c5f8a; --ink:#16222c; --paper:#eef3f6; --soft:#dfe9ef; }
+  * { box-sizing:border-box; margin:0; }
+  body { font-family:Georgia, "Times New Roman", serif; background:var(--paper); color:var(--ink); line-height:1.55; }
+  main { max-width:660px; margin:0 auto; }
+  .boundary { background:#fdeaea; border-left:6px solid #b03030; color:#5c1c1c; border-radius:6px; padding:1rem 1.1rem; }
+  .boundary strong { display:block; margin-bottom:.3rem; }
+  body { padding:2rem 1.2rem; }
+  h1 { font-size:1.8rem; color:var(--accent); }
+  .boundary { margin:1rem 0 1.4rem; }
+  .panel { background:var(--soft); border-left:5px solid var(--accent); border-radius:6px; padding:1rem 1.1rem; margin-bottom:1.1rem; }
+  h2 { font-size:1.1rem; margin-bottom:.6rem; }
+  p.note { font-size:.9rem; margin-bottom:.4rem; }
+  label { display:block; font-size:.9rem; margin:.45rem 0 .1rem; }
+  input { width:100%; padding:.45rem .55rem; font-size:1rem; border:1px solid #a9c2d4; border-radius:6px; background:#fff; color:var(--ink); font-family:inherit; }
+  .row2 { display:grid; grid-template-columns:1fr 1fr; gap:.6rem; }
+  .out { margin-top:.7rem; font-size:.98rem; background:#fff; border:1px dashed #a9c2d4; border-radius:6px; padding:.6rem .7rem; min-height:2.4rem; overflow-wrap:anywhere; }
+  .out.err { border-color:#b03030; color:#8a1f1f; }
+  footer { margin-top:1.8rem; font-size:.85rem; color:#7d9ab0; }
+  a { color:var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Park Math</h1>
+  <div class="boundary">
+    <strong>Boundary: arithmetic only</strong>
+    This page prices a parking stay with minute counting and bracket steps: how long the stay is, whether the grace covers it, what the rate card bills with its daily maximum, and the leave-by minute that keeps the price where it is. It uses no named constants. The grace, the first-hour price, the increment, its price and the daily maximum are yours to copy from the posted sign, and the times are yours to enter. It applies the card as written, so it has not seen your garage and does not know about validations, event rates, lost tickets, overnight rules or a barrier that charges differently, and it gives no verdict that parking there is wise or cheap. Every number here is your own entry.
+  </div>
+
+  <div class="panel">
+    <h2>The stay</h2>
+    <p class="note">Entry and exit in 24-hour form, same day.</p>
+    <div class="row2">
+      <div><label for="entry">Entry time</label><input id="entry" type="text" value="09:12"></div>
+      <div><label for="exit">Exit time</label><input id="exit" type="text" value="13:47"></div>
+    </div>
+  </div>
+  <div class="panel">
+    <h2>The rate card</h2>
+    <p class="note">From the posted sign: grace, first hour, the started-block increment and its price, and the daily maximum. Prices in cents.</p>
+    <div class="row2">
+      <div><label for="grace">Grace (minutes)</label><input id="grace" type="text" value="15"></div>
+      <div><label for="first">First hour (cents)</label><input id="first" type="text" value="500"></div>
+    </div>
+    <div class="row2">
+      <div><label for="kmin">Increment (minutes)</label><input id="kmin" type="text" value="30"></div>
+      <div><label for="kprice">Increment price (cents)</label><input id="kprice" type="text" value="200"></div>
+    </div>
+    <label for="dmax">Daily maximum (cents)</label><input id="dmax" type="text" value="2400">
+  </div>
+  <div class="panel">
+    <h2>The stay truth</h2>
+    <p class="note">Stay: the minutes between entry and exit.</p>
+    <div class="out" id="s-out"></div>
+  </div>
+  <div class="panel">
+    <h2>The grace truth</h2>
+    <p class="note">Grace: inside it nothing is billed; past it the whole stay is billed.</p>
+    <div class="out" id="g-out"></div>
+  </div>
+  <div class="panel">
+    <h2>The fee truth</h2>
+    <p class="note">Fee: the first hour plus each started block, held by the daily maximum.</p>
+    <div class="out" id="f-out"></div>
+  </div>
+  <div class="panel">
+    <h2>The leave-by truth</h2>
+    <p class="note">Leave-by: the minute the current price stops holding.</p>
+    <div class="out" id="l-out"></div>
+  </div>
+
+  <footer>Park Math is exact arithmetic over the numbers you enter. <a href="index.html">Why it exists</a>.</footer>
+</main>
+<script src="engine.js"></script>
+<script>
+  function show(id, fn) {
+    const out = document.getElementById(id);
+    try { out.textContent = fn(); out.classList.remove("err"); }
+    catch (e) { out.textContent = e.message; out.classList.add("err"); }
+  }
+  function val(id) { return document.getElementById(id).value; }
+  function recalc() {
+    show("s-out", () => stayTruth(val("entry"), val("exit")));
+    show("g-out", () => graceTruth(val("entry"), val("exit"), val("grace")));
+    show("f-out", () => feeTruth(val("entry"), val("exit"), val("grace"), val("first"), val("kmin"), val("kprice"), val("dmax")));
+    show("l-out", () => leaveTruth(val("entry"), val("exit"), val("grace"), val("first"), val("kmin"), val("kprice"), val("dmax")));
+  }
+  document.querySelectorAll("input").forEach((el) => {
+    el.addEventListener("input", recalc);
+    el.addEventListener("change", recalc);
+  });
+  recalc();
+</script>
+</body>
+</html>
