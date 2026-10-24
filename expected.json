@@ -1,0 +1,1152 @@
+{
+ "cases": [
+  {
+   "fn": "stay",
+   "args": [
+    "09:12",
+    "13:47"
+   ],
+   "expect": "From 9:12 AM to 1:47 PM the stay is 4 hours and 35 minutes."
+  },
+  {
+   "fn": "stay",
+   "args": [
+    "00:00",
+    "00:01"
+   ],
+   "expect": "From 12:00 AM to 12:01 AM the stay is 1 minute."
+  },
+  {
+   "fn": "stay",
+   "args": [
+    "10:00",
+    "11:00"
+   ],
+   "expect": "From 10:00 AM to 11:00 AM the stay is 1 hour."
+  },
+  {
+   "fn": "stay",
+   "args": [
+    "10:00",
+    "11:01"
+   ],
+   "expect": "From 10:00 AM to 11:01 AM the stay is 1 hour and 1 minute."
+  },
+  {
+   "fn": "stay",
+   "args": [
+    "08:00",
+    "20:45"
+   ],
+   "expect": "From 8:00 AM to 8:45 PM the stay is 12 hours and 45 minutes."
+  },
+  {
+   "fn": "stay",
+   "args": [
+    "12:00",
+    "13:00"
+   ],
+   "expect": "From 12:00 PM to 1:00 PM the stay is 1 hour."
+  },
+  {
+   "fn": "stay",
+   "args": [
+    "23:00",
+    "23:59"
+   ],
+   "expect": "From 11:00 PM to 11:59 PM the stay is 59 minutes."
+  },
+  {
+   "fn": "stay",
+   "args": [
+    "00:00",
+    "23:59"
+   ],
+   "expect": "From 12:00 AM to 11:59 PM the stay is 23 hours and 59 minutes."
+  },
+  {
+   "fn": "stay",
+   "args": [
+    "09:00",
+    "10:30"
+   ],
+   "expect": "From 9:00 AM to 10:30 AM the stay is 1 hour and 30 minutes."
+  },
+  {
+   "fn": "stay",
+   "args": [
+    "17:45",
+    "18:00"
+   ],
+   "expect": "From 5:45 PM to 6:00 PM the stay is 15 minutes."
+  },
+  {
+   "fn": "stay",
+   "args": [
+    "06:30",
+    "06:31"
+   ],
+   "expect": "From 6:30 AM to 6:31 AM the stay is 1 minute."
+  },
+  {
+   "fn": "stay",
+   "args": [
+    "11:59",
+    "12:01"
+   ],
+   "expect": "From 11:59 AM to 12:01 PM the stay is 2 minutes."
+  },
+  {
+   "fn": "stay",
+   "args": [
+    "00:01",
+    "00:02"
+   ],
+   "expect": "From 12:01 AM to 12:02 AM the stay is 1 minute."
+  },
+  {
+   "fn": "stay",
+   "args": [
+    "13:00",
+    "14:14"
+   ],
+   "expect": "From 1:00 PM to 2:14 PM the stay is 1 hour and 14 minutes."
+  },
+  {
+   "fn": "stay",
+   "args": [
+    "21:00",
+    "22:00"
+   ],
+   "expect": "From 9:00 PM to 10:00 PM the stay is 1 hour."
+  },
+  {
+   "fn": "grace",
+   "args": [
+    "09:12",
+    "13:47",
+    "15"
+   ],
+   "expect": "Past the 15 minutes of grace the whole stay is billed, not the 4 hours and 20 minutes after it."
+  },
+  {
+   "fn": "grace",
+   "args": [
+    "09:12",
+    "09:20",
+    "15"
+   ],
+   "expect": "The stay sits inside the 15 minutes of grace, so nothing is billed."
+  },
+  {
+   "fn": "grace",
+   "args": [
+    "09:12",
+    "09:27",
+    "15"
+   ],
+   "expect": "The stay sits inside the 15 minutes of grace, so nothing is billed."
+  },
+  {
+   "fn": "grace",
+   "args": [
+    "09:12",
+    "09:28",
+    "15"
+   ],
+   "expect": "Past the 15 minutes of grace the whole stay is billed, not the 1 minute after it."
+  },
+  {
+   "fn": "grace",
+   "args": [
+    "10:00",
+    "10:01",
+    "1"
+   ],
+   "expect": "The stay sits inside the 1 minute of grace, so nothing is billed."
+  },
+  {
+   "fn": "grace",
+   "args": [
+    "10:00",
+    "11:00",
+    "60"
+   ],
+   "expect": "The stay sits inside the 60 minutes of grace, so nothing is billed."
+  },
+  {
+   "fn": "grace",
+   "args": [
+    "10:00",
+    "12:00",
+    "120"
+   ],
+   "expect": "The stay sits inside the 120 minutes of grace, so nothing is billed."
+  },
+  {
+   "fn": "grace",
+   "args": [
+    "10:00",
+    "10:30",
+    "0"
+   ],
+   "expect": "With no grace the whole stay is billed from 10:00 AM."
+  },
+  {
+   "fn": "grace",
+   "args": [
+    "08:00",
+    "08:20",
+    "20"
+   ],
+   "expect": "The stay sits inside the 20 minutes of grace, so nothing is billed."
+  },
+  {
+   "fn": "grace",
+   "args": [
+    "08:00",
+    "08:21",
+    "20"
+   ],
+   "expect": "Past the 20 minutes of grace the whole stay is billed, not the 1 minute after it."
+  },
+  {
+   "fn": "grace",
+   "args": [
+    "23:30",
+    "23:59",
+    "15"
+   ],
+   "expect": "Past the 15 minutes of grace the whole stay is billed, not the 14 minutes after it."
+  },
+  {
+   "fn": "grace",
+   "args": [
+    "00:00",
+    "01:00",
+    "1"
+   ],
+   "expect": "Past the 1 minute of grace the whole stay is billed, not the 59 minutes after it."
+  },
+  {
+   "fn": "grace",
+   "args": [
+    "14:00",
+    "15:30",
+    "90"
+   ],
+   "expect": "The stay sits inside the 90 minutes of grace, so nothing is billed."
+  },
+  {
+   "fn": "grace",
+   "args": [
+    "07:15",
+    "07:16",
+    "1"
+   ],
+   "expect": "The stay sits inside the 1 minute of grace, so nothing is billed."
+  },
+  {
+   "fn": "fee",
+   "args": [
+    "09:12",
+    "13:47",
+    "15",
+    "500",
+    "30",
+    "200",
+    "2400"
+   ],
+   "expect": "At $5.00 for the first hour and $2.00 for each started block of 30 minutes after it, the stay bills $21.00, under the $24.00 daily maximum."
+  },
+  {
+   "fn": "fee",
+   "args": [
+    "09:12",
+    "09:40",
+    "15",
+    "500",
+    "30",
+    "200",
+    "2400"
+   ],
+   "expect": "The stay fits the first hour: $5.00, under the $24.00 daily maximum."
+  },
+  {
+   "fn": "fee",
+   "args": [
+    "09:12",
+    "09:40",
+    "15",
+    "500",
+    "30",
+    "200",
+    "400"
+   ],
+   "expect": "The $4.00 daily maximum cuts even the first hour to $4.00."
+  },
+  {
+   "fn": "fee",
+   "args": [
+    "09:12",
+    "10:12",
+    "15",
+    "500",
+    "30",
+    "200",
+    "2400"
+   ],
+   "expect": "The stay fits the first hour: $5.00, under the $24.00 daily maximum."
+  },
+  {
+   "fn": "fee",
+   "args": [
+    "09:12",
+    "10:13",
+    "15",
+    "500",
+    "30",
+    "200",
+    "2400"
+   ],
+   "expect": "At $5.00 for the first hour and $2.00 for each started block of 30 minutes after it, the stay bills $7.00, under the $24.00 daily maximum."
+  },
+  {
+   "fn": "fee",
+   "args": [
+    "09:12",
+    "10:42",
+    "15",
+    "500",
+    "30",
+    "200",
+    "2400"
+   ],
+   "expect": "At $5.00 for the first hour and $2.00 for each started block of 30 minutes after it, the stay bills $7.00, under the $24.00 daily maximum."
+  },
+  {
+   "fn": "fee",
+   "args": [
+    "09:12",
+    "10:43",
+    "15",
+    "500",
+    "30",
+    "200",
+    "2400"
+   ],
+   "expect": "At $5.00 for the first hour and $2.00 for each started block of 30 minutes after it, the stay bills $9.00, under the $24.00 daily maximum."
+  },
+  {
+   "fn": "fee",
+   "args": [
+    "09:12",
+    "13:47",
+    "0",
+    "100",
+    "60",
+    "100",
+    "100000"
+   ],
+   "expect": "At $1.00 for the first hour and $1.00 for each started block of 60 minutes after it, the stay bills $5.00, under the $1000.00 daily maximum."
+  },
+  {
+   "fn": "fee",
+   "args": [
+    "08:00",
+    "20:00",
+    "10",
+    "800",
+    "60",
+    "400",
+    "2000"
+   ],
+   "expect": "At $8.00 for the first hour and $4.00 for each started block of 60 minutes after it, the stay bills $52.00, so the $20.00 daily maximum cuts it to $20.00."
+  },
+  {
+   "fn": "fee",
+   "args": [
+    "08:00",
+    "20:00",
+    "10",
+    "800",
+    "60",
+    "400",
+    "2400"
+   ],
+   "expect": "At $8.00 for the first hour and $4.00 for each started block of 60 minutes after it, the stay bills $52.00, so the $24.00 daily maximum cuts it to $24.00."
+  },
+  {
+   "fn": "fee",
+   "args": [
+    "08:00",
+    "20:00",
+    "10",
+    "800",
+    "60",
+    "400",
+    "2401"
+   ],
+   "expect": "At $8.00 for the first hour and $4.00 for each started block of 60 minutes after it, the stay bills $52.00, so the $24.01 daily maximum cuts it to $24.01."
+  },
+  {
+   "fn": "fee",
+   "args": [
+    "10:00",
+    "11:00",
+    "0",
+    "1",
+    "1",
+    "1",
+    "1"
+   ],
+   "expect": "The $0.01 daily maximum cuts even the first hour to $0.01."
+  },
+  {
+   "fn": "fee",
+   "args": [
+    "10:00",
+    "12:01",
+    "0",
+    "300",
+    "1",
+    "50",
+    "99000"
+   ],
+   "expect": "At $3.00 for the first hour and $0.50 for each started block of 1 minute after it, the stay bills $33.50, under the $990.00 daily maximum."
+  },
+  {
+   "fn": "fee",
+   "args": [
+    "10:00",
+    "13:00",
+    "30",
+    "250",
+    "15",
+    "125",
+    "1000"
+   ],
+   "expect": "At $2.50 for the first hour and $1.25 for each started block of 15 minutes after it, the stay bills $12.50, so the $10.00 daily maximum cuts it to $10.00."
+  },
+  {
+   "fn": "fee",
+   "args": [
+    "10:00",
+    "13:00",
+    "30",
+    "250",
+    "15",
+    "125",
+    "999"
+   ],
+   "expect": "At $2.50 for the first hour and $1.25 for each started block of 15 minutes after it, the stay bills $12.50, so the $9.99 daily maximum cuts it to $9.99."
+  },
+  {
+   "fn": "fee",
+   "args": [
+    "09:00",
+    "18:00",
+    "20",
+    "600",
+    "20",
+    "150",
+    "1800"
+   ],
+   "expect": "At $6.00 for the first hour and $1.50 for each started block of 20 minutes after it, the stay bills $42.00, so the $18.00 daily maximum cuts it to $18.00."
+  },
+  {
+   "fn": "fee",
+   "args": [
+    "09:00",
+    "18:00",
+    "20",
+    "600",
+    "20",
+    "150",
+    "1799"
+   ],
+   "expect": "At $6.00 for the first hour and $1.50 for each started block of 20 minutes after it, the stay bills $42.00, so the $17.99 daily maximum cuts it to $17.99."
+  },
+  {
+   "fn": "fee",
+   "args": [
+    "06:00",
+    "06:45",
+    "0",
+    "99999",
+    "120",
+    "99999",
+    "999999"
+   ],
+   "expect": "The stay fits the first hour: $999.99, under the $9999.99 daily maximum."
+  },
+  {
+   "fn": "fee",
+   "args": [
+    "12:30",
+    "16:45",
+    "5",
+    "175",
+    "45",
+    "85",
+    "1500"
+   ],
+   "expect": "At $1.75 for the first hour and $0.85 for each started block of 45 minutes after it, the stay bills $6.00, under the $15.00 daily maximum."
+  },
+  {
+   "fn": "fee",
+   "args": [
+    "01:00",
+    "02:00",
+    "0",
+    "200",
+    "60",
+    "200",
+    "150"
+   ],
+   "expect": "The $1.50 daily maximum cuts even the first hour to $1.50."
+  },
+  {
+   "fn": "fee",
+   "args": [
+    "01:00",
+    "03:00",
+    "0",
+    "200",
+    "60",
+    "200",
+    "350"
+   ],
+   "expect": "At $2.00 for the first hour and $2.00 for each started block of 60 minutes after it, the stay bills $4.00, so the $3.50 daily maximum cuts it to $3.50."
+  },
+  {
+   "fn": "fee",
+   "args": [
+    "05:05",
+    "05:06",
+    "0",
+    "100",
+    "30",
+    "100",
+    "10000"
+   ],
+   "expect": "The stay fits the first hour: $1.00, under the $100.00 daily maximum."
+  },
+  {
+   "fn": "fee",
+   "args": [
+    "05:05",
+    "06:06",
+    "1",
+    "100",
+    "1",
+    "100",
+    "10000"
+   ],
+   "expect": "At $1.00 for the first hour and $1.00 for each started block of 1 minute after it, the stay bills $2.00, under the $100.00 daily maximum."
+  },
+  {
+   "fn": "fee",
+   "args": [
+    "18:00",
+    "19:30",
+    "15",
+    "450",
+    "30",
+    "150",
+    "100000"
+   ],
+   "expect": "At $4.50 for the first hour and $1.50 for each started block of 30 minutes after it, the stay bills $6.00, under the $1000.00 daily maximum."
+  },
+  {
+   "fn": "fee",
+   "args": [
+    "18:00",
+    "19:30",
+    "15",
+    "450",
+    "30",
+    "150",
+    "900"
+   ],
+   "expect": "At $4.50 for the first hour and $1.50 for each started block of 30 minutes after it, the stay bills $6.00, under the $9.00 daily maximum."
+  },
+  {
+   "fn": "fee",
+   "args": [
+    "18:00",
+    "19:31",
+    "15",
+    "450",
+    "30",
+    "150",
+    "900"
+   ],
+   "expect": "At $4.50 for the first hour and $1.50 for each started block of 30 minutes after it, the stay bills $7.50, under the $9.00 daily maximum."
+  },
+  {
+   "fn": "fee",
+   "args": [
+    "07:00",
+    "09:00",
+    "30",
+    "300",
+    "60",
+    "200",
+    "600"
+   ],
+   "expect": "At $3.00 for the first hour and $2.00 for each started block of 60 minutes after it, the stay bills $5.00, under the $6.00 daily maximum."
+  },
+  {
+   "fn": "fee",
+   "args": [
+    "07:00",
+    "09:01",
+    "30",
+    "300",
+    "60",
+    "200",
+    "600"
+   ],
+   "expect": "At $3.00 for the first hour and $2.00 for each started block of 60 minutes after it, the stay bills $7.00, so the $6.00 daily maximum cuts it to $6.00."
+  },
+  {
+   "fn": "leave",
+   "args": [
+    "09:12",
+    "13:47",
+    "15",
+    "500",
+    "30",
+    "200",
+    "2400"
+   ],
+   "expect": "Leave by 2:12 PM and the price stays $21.00; a minute longer and it is $23.00."
+  },
+  {
+   "fn": "leave",
+   "args": [
+    "09:12",
+    "09:20",
+    "15",
+    "500",
+    "30",
+    "200",
+    "2400"
+   ],
+   "expect": "Leave by 9:27 AM and the stay is free; a minute longer and it is $5.00."
+  },
+  {
+   "fn": "leave",
+   "args": [
+    "09:12",
+    "13:47",
+    "15",
+    "500",
+    "30",
+    "200",
+    "2000"
+   ],
+   "expect": "The $20.00 daily maximum already holds; leave any time before midnight and the price stays $20.00."
+  },
+  {
+   "fn": "leave",
+   "args": [
+    "09:12",
+    "10:12",
+    "15",
+    "500",
+    "30",
+    "200",
+    "2400"
+   ],
+   "expect": "Leave by 10:12 AM and the price stays $5.00; a minute longer and it is $7.00."
+  },
+  {
+   "fn": "leave",
+   "args": [
+    "09:12",
+    "10:13",
+    "15",
+    "500",
+    "30",
+    "200",
+    "2400"
+   ],
+   "expect": "Leave by 10:42 AM and the price stays $7.00; a minute longer and it is $9.00."
+  },
+  {
+   "fn": "leave",
+   "args": [
+    "10:00",
+    "10:01",
+    "1",
+    "100",
+    "30",
+    "100",
+    "10000"
+   ],
+   "expect": "Leave by 10:01 AM and the stay is free; a minute longer and it is $1.00."
+  },
+  {
+   "fn": "leave",
+   "args": [
+    "10:00",
+    "11:00",
+    "0",
+    "300",
+    "60",
+    "200",
+    "600"
+   ],
+   "expect": "Leave by 11:00 AM and the price stays $3.00; a minute longer and it is $5.00."
+  },
+  {
+   "fn": "leave",
+   "args": [
+    "10:00",
+    "11:00",
+    "0",
+    "300",
+    "60",
+    "200",
+    "299"
+   ],
+   "expect": "The $2.99 daily maximum already holds; leave any time before midnight and the price stays $2.99."
+  },
+  {
+   "fn": "leave",
+   "args": [
+    "08:00",
+    "20:00",
+    "10",
+    "800",
+    "60",
+    "400",
+    "2400"
+   ],
+   "expect": "The $24.00 daily maximum already holds; leave any time before midnight and the price stays $24.00."
+  },
+  {
+   "fn": "leave",
+   "args": [
+    "08:00",
+    "20:00",
+    "10",
+    "800",
+    "60",
+    "400",
+    "2399"
+   ],
+   "expect": "The $23.99 daily maximum already holds; leave any time before midnight and the price stays $23.99."
+  },
+  {
+   "fn": "leave",
+   "args": [
+    "08:00",
+    "20:00",
+    "10",
+    "800",
+    "60",
+    "400",
+    "2401"
+   ],
+   "expect": "The $24.01 daily maximum already holds; leave any time before midnight and the price stays $24.01."
+  },
+  {
+   "fn": "leave",
+   "args": [
+    "23:30",
+    "23:59",
+    "0",
+    "100",
+    "15",
+    "50",
+    "100000"
+   ],
+   "expect": "Leave by 12:30 AM and the price stays $1.00; a minute longer and it is $1.50."
+  },
+  {
+   "fn": "leave",
+   "args": [
+    "00:00",
+    "00:01",
+    "1",
+    "100",
+    "30",
+    "100",
+    "10000"
+   ],
+   "expect": "Leave by 12:01 AM and the stay is free; a minute longer and it is $1.00."
+  },
+  {
+   "fn": "leave",
+   "args": [
+    "00:00",
+    "23:59",
+    "0",
+    "100",
+    "120",
+    "200",
+    "99999"
+   ],
+   "expect": "Leave by 1:00 AM and the price stays $25.00; a minute longer and it is $27.00."
+  },
+  {
+   "fn": "leave",
+   "args": [
+    "14:00",
+    "16:00",
+    "30",
+    "250",
+    "30",
+    "125",
+    "1000"
+   ],
+   "expect": "Leave by 4:00 PM and the price stays $5.00; a minute longer and it is $6.25."
+  },
+  {
+   "fn": "leave",
+   "args": [
+    "14:00",
+    "16:00",
+    "30",
+    "250",
+    "30",
+    "125",
+    "999"
+   ],
+   "expect": "Leave by 4:00 PM and the price stays $5.00; a minute longer and it is $6.25."
+  },
+  {
+   "fn": "leave",
+   "args": [
+    "14:00",
+    "16:01",
+    "30",
+    "250",
+    "30",
+    "125",
+    "999"
+   ],
+   "expect": "Leave by 4:30 PM and the price stays $6.25; a minute longer and it is $7.50."
+  },
+  {
+   "fn": "leave",
+   "args": [
+    "06:00",
+    "06:45",
+    "0",
+    "99999",
+    "120",
+    "99999",
+    "999999"
+   ],
+   "expect": "Leave by 7:00 AM and the price stays $999.99; a minute longer and it is $1999.98."
+  },
+  {
+   "fn": "leave",
+   "args": [
+    "05:05",
+    "06:06",
+    "1",
+    "100",
+    "1",
+    "100",
+    "10000"
+   ],
+   "expect": "Leave by 6:06 AM and the price stays $2.00; a minute longer and it is $3.00."
+  },
+  {
+   "fn": "leave",
+   "args": [
+    "18:00",
+    "19:30",
+    "15",
+    "450",
+    "30",
+    "150",
+    "900"
+   ],
+   "expect": "Leave by 7:30 PM and the price stays $6.00; a minute longer and it is $7.50."
+  },
+  {
+   "fn": "leave",
+   "args": [
+    "07:00",
+    "07:30",
+    "0",
+    "200",
+    "30",
+    "100",
+    "5000"
+   ],
+   "expect": "Leave by 8:00 AM and the price stays $2.00; a minute longer and it is $3.00."
+  },
+  {
+   "fn": "leave",
+   "args": [
+    "07:00",
+    "07:31",
+    "0",
+    "200",
+    "30",
+    "100",
+    "5000"
+   ],
+   "expect": "Leave by 8:00 AM and the price stays $2.00; a minute longer and it is $3.00."
+  },
+  {
+   "fn": "leave",
+   "args": [
+    "12:00",
+    "12:02",
+    "2",
+    "100",
+    "60",
+    "100",
+    "1000"
+   ],
+   "expect": "Leave by 12:02 PM and the stay is free; a minute longer and it is $1.00."
+  },
+  {
+   "fn": "leave",
+   "args": [
+    "12:00",
+    "12:03",
+    "2",
+    "100",
+    "60",
+    "100",
+    "1000"
+   ],
+   "expect": "Leave by 1:00 PM and the price stays $1.00; a minute longer and it is $2.00."
+  },
+  {
+   "fn": "leave",
+   "args": [
+    "16:00",
+    "17:00",
+    "0",
+    "100",
+    "1",
+    "100",
+    "10000"
+   ],
+   "expect": "Leave by 5:00 PM and the price stays $1.00; a minute longer and it is $2.00."
+  },
+  {
+   "fn": "leave",
+   "args": [
+    "21:15",
+    "22:45",
+    "10",
+    "350",
+    "20",
+    "95",
+    "1200"
+   ],
+   "expect": "Leave by 10:55 PM and the price stays $5.40; a minute longer and it is $6.35."
+  }
+ ],
+ "errors": [
+  [
+   "stay",
+   [
+    "9:12",
+    "13:47"
+   ]
+  ],
+  [
+   "stay",
+   [
+    "24:00",
+    "23:59"
+   ]
+  ],
+  [
+   "stay",
+   [
+    "10:00",
+    "10:00"
+   ]
+  ],
+  [
+   "stay",
+   [
+    "12:00",
+    "11:59"
+   ]
+  ],
+  [
+   "stay",
+   [
+    "10:60",
+    "11:00"
+   ]
+  ],
+  [
+   "grace",
+   [
+    "09:12",
+    "13:47",
+    "121"
+   ]
+  ],
+  [
+   "grace",
+   [
+    "09:12",
+    "13:47",
+    "-1"
+   ]
+  ],
+  [
+   "fee",
+   [
+    "09:12",
+    "13:47",
+    "15",
+    "0",
+    "30",
+    "200",
+    "2400"
+   ]
+  ],
+  [
+   "fee",
+   [
+    "09:12",
+    "13:47",
+    "15",
+    "100000",
+    "30",
+    "200",
+    "2400"
+   ]
+  ],
+  [
+   "fee",
+   [
+    "09:12",
+    "13:47",
+    "15",
+    "500",
+    "0",
+    "200",
+    "2400"
+   ]
+  ],
+  [
+   "fee",
+   [
+    "09:12",
+    "13:47",
+    "15",
+    "500",
+    "121",
+    "200",
+    "2400"
+   ]
+  ],
+  [
+   "fee",
+   [
+    "09:12",
+    "13:47",
+    "15",
+    "500",
+    "30",
+    "0",
+    "2400"
+   ]
+  ],
+  [
+   "fee",
+   [
+    "09:12",
+    "13:47",
+    "15",
+    "500",
+    "30",
+    "100000",
+    "2400"
+   ]
+  ],
+  [
+   "leave",
+   [
+    "09:12",
+    "13:47",
+    "15",
+    "500",
+    "30",
+    "200",
+    "0"
+   ]
+  ],
+  [
+   "leave",
+   [
+    "09:12",
+    "13:47",
+    "15",
+    "500",
+    "30",
+    "200",
+    "1000000"
+   ]
+  ],
+  [
+   "leave",
+   [
+    "9:12",
+    "13:47",
+    "15",
+    "500",
+    "30",
+    "200",
+    "2400"
+   ]
+  ],
+  [
+   "fee",
+   [
+    "09:12",
+    "09:12",
+    "15",
+    "500",
+    "30",
+    "200",
+    "2400"
+   ]
+  ],
+  [
+   "stay",
+   [
+    "abc",
+    "13:47"
+   ]
+  ],
+  [
+   "grace",
+   [
+    "09:12",
+    "13:47",
+    "1.5"
+   ]
+  ],
+  [
+   "fee",
+   [
+    "09:12",
+    "13:47",
+    "15",
+    "500",
+    "30",
+    "20.5",
+    "2400"
+   ]
+  ]
+ ]
+}
